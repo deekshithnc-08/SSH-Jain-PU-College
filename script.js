@@ -1,27 +1,36 @@
-const staff = [
-  {name:'Banakar Veeranna',role:'Lecturer',photo:'staff-01.png'},
-  {name:'K. M. Vishwanatha',role:'Lecturer',photo:'staff-02.png'},
-  {name:'Linga Naik',role:'Lecturer',photo:'staff-03.png'},
-  {name:'M. Umesh Reddy',role:'Lecturer',photo:'staff-04.png'},
-  {name:'Nagachampa H. M.',role:'Lecturer',photo:'staff-05.png'},
-  {name:'Satisha M. S.',role:'Lecturer',photo:'staff-06.png'},
-  {name:'Parashuramappa N.',role:'Lecturer',photo:'staff-07.png'},
-  {name:'Savitri Karigar',role:'Lecturer',photo:'staff-08.png'},
-  {name:'Sindhu Kobbajji',role:'Lecturer',photo:'staff-09.png'},
-  {name:'Veeraiah Hirematada',role:'Lecturer',photo:'staff-10.png'},
-  {name:'P. Sanna Patreppa',role:'Office Staff',photo:'staff-12.png'},
-  {name:'Chiranjeevi Neelagar',role:'Office Staff',photo:'staff-14.png'},
-  {name:'Mallikarjuna K. M.',role:'Office Staff',photo:'staff-16.png'},
-  {name:'Mathihalli Deviramma',role:'Office Staff',photo:'staff-17.png'},
-  {name:'Shivakumara P.',role:'Office Staff',photo:'staff-18.png'}
+const staffGroups = [
+  {title:'Teaching Faculty', people:[
+    ['Banakar Veeranna','Lecturer','staff-01.png'],['K. M. Vishwanatha','Lecturer','staff-02.png'],['Linga Naik','Lecturer','staff-03.png'],['M. Umesh Reddy','Lecturer','staff-04.png'],['Nagachampa H. M.','Lecturer','staff-05.png'],['Satisha M. S.','Lecturer','staff-06.png'],['Parashuramappa N.','Lecturer','staff-07.png'],['Savitri Karigar','Lecturer','staff-08.png'],['Sindhu Kobbajji','Lecturer','staff-09.png'],['Veeraiah Hirematada','Lecturer','staff-10.png'],['Basavarajappa M.','Lecturer','staff-11.png']
+  ]},
+  {title:'Non-Teaching Staff', people:[
+    ['P. Sanna Patreppa','Office Staff','staff-12.png'],['Chiranjeevi Neelagar','Office Staff','staff-14.png'],['Mallikarjuna K. M.','Office Staff','staff-16.png'],['Mathihalli Deviramma','Office Staff','staff-17.png'],['Shivakumara P.','Office Staff','staff-18.png']
+  ]},
+  {title:'Laboratory Assistants', people:[
+    ['Kotresha Shivapura','Lab Assistant','staff-13.png'],['Channaveerappa M.','Lab Assistant','staff-15.png'],['Mahamad Rafi N.','Lab Assistant','staff-19.png'],['Suresh U.','Lab Assistant','staff-20.png']
+  ]}
 ];
 
-const facultyGrid = document.querySelector('#faculty-grid');
-staff.forEach((person) => {
-  const card = document.createElement('article');
-  card.className = 'faculty-card';
-  card.innerHTML = `<div class="faculty-photo"><img loading="lazy" src="${person.photo}" alt="${person.name}"></div><div class="faculty-info"><h3>${person.name}</h3><p>${person.role}</p></div>`;
-  facultyGrid.appendChild(card);
+const facultyGroups = document.querySelector('#faculty-groups');
+staffGroups.forEach((group) => {
+  const section = document.createElement('section');
+  section.className = 'faculty-group';
+  section.innerHTML = `<div class="faculty-group-heading"><h3>${group.title}</h3><span>${group.people.length} members</span></div><div class="faculty-grid"></div>`;
+  const grid = section.querySelector('.faculty-grid');
+  group.people.forEach(([name, role, photo]) => {
+    const card = document.createElement('article');
+    card.className = 'faculty-card';
+    card.innerHTML = `<div class="faculty-photo"><img loading="lazy" src="${photo}" alt="${name}"></div><div class="faculty-info"><h3>${name}</h3><p>${role}</p></div>`;
+    grid.appendChild(card);
+  });
+  facultyGroups.appendChild(section);
+});
+
+document.querySelectorAll('.achievement-slider').forEach((slider) => {
+  const track = slider.querySelector('.achievement-track');
+  slider.querySelectorAll('[data-slide]').forEach((button) => button.addEventListener('click', () => {
+    const amount = track.clientWidth;
+    track.scrollBy({left: button.dataset.slide === 'next' ? amount : -amount, behavior:'smooth'});
+  }));
 });
 
 document.querySelectorAll('.stream-tab').forEach((button) => button.addEventListener('click', () => {
