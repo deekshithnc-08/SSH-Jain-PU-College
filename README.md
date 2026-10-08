@@ -1,5 +1,19 @@
 # SSH Jain PU College Website
 
+## Version 4 — Advanced responsive concept
+
+The complete multi-page redesign is available in `future/`:
+
+- `future/index.html` — home and programme discovery
+- `future/about.html` — institution, vision and mission
+- `future/academics.html` — Science, Commerce and Arts pathways
+- `future/campus.html` — campus and laboratories
+- `future/people.html` — leadership and filterable faculty directory
+- `future/results.html` — results and alumni outcomes
+- `future/admissions.html` — admission process, fees and enquiry form
+
+Shared design and behaviour live in `future/advanced.css` and `future/advanced.js`.
+
 Official website source for Sha Sheshaji Hasthimal Jain Arts, Commerce and Science Pre-University College, Harapanahalli.
 
 The site is a responsive, accessible multi-page static website published with GitHub Pages.
