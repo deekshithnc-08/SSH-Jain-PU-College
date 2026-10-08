@@ -1,12 +1,35 @@
 const staffGroups = [
   {title:'Teaching Faculty', people:[
-    ['Banakar Veeranna','Lecturer','staff-01.png'],['K. M. Vishwanatha','Lecturer','staff-02.png'],['Linga Naik','Lecturer','staff-03.png'],['M. Umesh Reddy','Lecturer','staff-04.png'],['Nagachampa H. M.','Lecturer','staff-05.png'],['Satisha M. S.','Lecturer','staff-06.png'],['Parashuramappa N.','Lecturer','staff-07.png'],['Savitri Karigar','Lecturer','staff-08.png'],['Sindhu Kobbajji','Lecturer','staff-09.png'],['Veeraiah Hirematada','Lecturer','staff-10.png'],['Basavarajappa M.','Lecturer','staff-11.png']
+    ['Dr. Sharath A. M.','Principal · Economics','D.Com., B.Ed., M.A., Ph.D.','principal-sharath.jpg'],
+    ['Banakar Veeranna','Kannada Lecturer','M.A.','staff-01.png'],
+    ['Parashuramappa N.','Kannada Lecturer','M.A.','staff-07.png'],
+    ['Veerabhadrappa N.','Kannada Lecturer','M.A.','staff-veerabhadrappa.jpg'],
+    ['Savitri Karigar','English Lecturer','M.A.','staff-08.png'],
+    ['Veeraiah Hirematada','Sanskrit Lecturer','M.A.','staff-10.png'],
+    ['Linga Naik','History Lecturer','M.A.','staff-03.png'],
+    ['M. Umesh Reddy','Economics Lecturer','M.A.','staff-04.png'],
+    ['K. M. Vishwanatha','Political Science Lecturer','M.A.','staff-02.png'],
+    ['Basavarajappa M.','Education Lecturer','M.Ed.','staff-11.png'],
+    ['Satisha M. S.','Education Lecturer','M.Ed.','staff-06.png'],
+    ['Nagachampa H. M.','Business Studies & Accountancy Lecturer','','staff-05.png'],
+    ['Sindhu Kobbajji','Computer Science Lecturer','M.Sc. Computer Science','staff-09.png'],
+    ['Ganesh','Chemistry Lecturer','M.Sc.','staff-ganesh.jpg'],
+    ['Shikari Sankranthi','Biology Lecturer','M.Sc.','staff-shikari-sankranthi.jpg'],
+    ['Mangala','Physics Lecturer','','staff-mangala.jpg'],
+    ['H. Vinayak','Mathematics Lecturer','M.Sc., B.Ed.','staff-h-vinayak.jpg']
   ]},
   {title:'Non-Teaching Staff', people:[
-    ['P. Sanna Patreppa','Office Staff','staff-12.png'],['Chiranjeevi Neelagar','Office Staff','staff-14.png'],['Mallikarjuna K. M.','Office Staff','staff-16.png'],['Mathihalli Deviramma','Office Staff','staff-17.png'],['Shivakumara P.','Office Staff','staff-18.png']
+    ['P. Sanna Patreppa','Office Staff','9th Standard','staff-12.png'],
+    ['Chiranjeevi Neelagar','Assistant Librarian','M.Lib.','staff-14.png'],
+    ['P. Shivakumara','Office Staff','B.A.','staff-18.png'],
+    ['Mallikarjuna K. M.','Attender','9th Standard','staff-16.png'],
+    ['M. Deviramma','Attender','PUC','staff-17.png']
   ]},
   {title:'Laboratory Assistants', people:[
-    ['Kotresha Shivapura','Lab Assistant','staff-13.png'],['Channaveerappa M.','Lab Assistant','staff-15.png'],['Mahamad Rafi N.','Lab Assistant','staff-19.png'],['Suresh U.','Lab Assistant','staff-20.png']
+    ['Channaveerappa M.','Laboratory Assistant','PUC, B.A.','staff-15.png'],
+    ['Mahamad Rafi N.','Laboratory Assistant','Diploma','staff-19.png'],
+    ['S. Kotresh','Laboratory Assistant','SSLC','staff-13.png'],
+    ['Suresh U.','Laboratory Assistant','SSLC','staff-20.png']
   ]}
 ];
 
@@ -16,10 +39,10 @@ staffGroups.forEach((group) => {
   section.className = 'faculty-group';
   section.innerHTML = `<div class="faculty-group-heading"><h3>${group.title}</h3><span>${group.people.length} members</span></div><div class="faculty-grid"></div>`;
   const grid = section.querySelector('.faculty-grid');
-  group.people.forEach(([name, role, photo]) => {
+  group.people.forEach(([name, role, qualification, photo]) => {
     const card = document.createElement('article');
     card.className = 'faculty-card';
-    card.innerHTML = `<div class="faculty-photo"><img loading="lazy" src="${photo}" alt="${name}"></div><div class="faculty-info"><h3>${name}</h3><p>${role}</p></div>`;
+    card.innerHTML = `<div class="faculty-photo"><img loading="lazy" src="${photo}" alt="${name}"></div><div class="faculty-info"><h3>${name}</h3><p class="faculty-role">${role}</p>${qualification ? `<p class="faculty-qualification">${qualification}</p>` : ''}</div>`;
     grid.appendChild(card);
   });
   facultyGroups.appendChild(section);
