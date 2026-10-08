@@ -16,6 +16,7 @@ The site is a responsive, accessible multi-page static website published with Gi
 - `admissions.html` — fees, process and Google Sheets-ready enquiry form
 - `contact.html` — campus address, timings and common questions
 - `version-2.html` — alternate light editorial homepage concept
+- `version-3.html` — formal national-institution-inspired homepage concept
 - `assets/css` — shared design system
 - `assets/js` — shared behaviour and faculty data
 - `assets/images` — campus, people, laboratory and career imagery
